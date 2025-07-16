@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/portfolio-website/static/css/main.af794518.css",
+    "main.js": "/portfolio-website/static/js/main.bb2fd8a1.js",
+    "static/media/blueMangoLogo.webp": "/portfolio-website/static/media/blueMangoLogo.f1b76688197c2545f568.webp",
+    "static/media/outlier.svg": "/portfolio-website/static/media/outlier.fbb21f53a59a8f2f54c33dea6a1ffb4d.svg",
+    "static/media/harsh_singh_image.webp": "/portfolio-website/static/media/harsh_singh_image.2307053726da54b46115.webp",
+    "static/media/harsh-about.webp": "/portfolio-website/static/media/harsh-about.335f356a7ca3d9ae083a.webp",
+    "static/media/mehh.webp": "/portfolio-website/static/media/mehh.c325afce4263404c34dd.webp",
+    "static/media/mayurbhaia.webp": "/portfolio-website/static/media/mayurbhaia.0f687853e8f05e10504e.webp",
+    "static/media/Google_logo_lockup_color.png": "/portfolio-website/static/media/Google_logo_lockup_color.bc2a20dea99bab7060c0.png",
+    "static/media/aishwarbhaia.webp": "/portfolio-website/static/media/aishwarbhaia.6f95299783befe231b70.webp",
+    "static/media/adityabhaia.webp": "/portfolio-website/static/media/adityabhaia.6b52043436bae3835e82.webp",
+    "static/media/mokshadi.webp": "/portfolio-website/static/media/mokshadi.72fe1fd0a8878a734148.webp",
+    "static/media/persistVentures.svg": "/portfolio-website/static/media/persistVentures.151e72bfccead2872b4b6b9cfde0fcfd.svg",
+    "index.html": "/portfolio-website/index.html",
+    "main.af794518.css.map": "/portfolio-website/static/css/main.af794518.css.map",
+    "main.bb2fd8a1.js.map": "/portfolio-website/static/js/main.bb2fd8a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af794518.css",
+    "static/js/main.bb2fd8a1.js"
+  ]
+}
