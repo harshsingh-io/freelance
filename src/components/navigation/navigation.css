@@ -19,9 +19,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: clamp(0.8rem, 2vw, 1rem) 0;
     width: var(--container-width-lg);
     margin: 0 auto;
+    max-width: 1400px;
 }
 
 .nav__logo a {
@@ -32,13 +33,13 @@
 }
 
 .logo-text {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 600;
     color: var(--color-primary);
 }
 
 .logo-subtitle {
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     color: var(--color-light);
     margin-top: -0.2rem;
 }
@@ -50,7 +51,7 @@
 
 .nav__list {
     display: flex;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2rem);
     margin: 0;
     padding: 0;
 }
@@ -58,10 +59,11 @@
 .nav__link {
     color: var(--color-light);
     font-weight: 400;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
     transition: var(--transition);
     position: relative;
-    padding: 0.5rem 0;
+    padding: clamp(0.4rem, 1vw, 0.5rem) 0;
+    white-space: nowrap;
 }
 
 .nav__link:hover,
@@ -82,22 +84,30 @@
 .nav__actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2vw, 1rem);
 }
 
 .nav__cta {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.5rem;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    padding: clamp(0.5rem, 1.5vw, 0.6rem) clamp(1.2rem, 3vw, 1.5rem);
     white-space: nowrap;
+    min-height: var(--touch-target);
 }
 
 .nav__toggle,
 .nav__close {
     display: none;
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
     color: var(--color-white);
     cursor: pointer;
     transition: var(--transition);
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    min-height: var(--touch-target);
+    min-width: var(--touch-target);
+    align-items: center;
+    justify-content: center;
 }
 
 .nav__toggle:hover,
@@ -105,11 +115,43 @@
     color: var(--color-primary);
 }
 
-/* Mobile Navigation */
-@media screen and (max-width: 768px) {
+/* Enhanced Mobile Navigation */
+@media screen and (max-width: 1200px) {
     .nav__container {
         width: var(--container-width-md);
-        padding: 0.8rem 0;
+        padding: clamp(0.6rem, 1.2vw, 0.8rem) var(--spacing-sm);
+    }
+
+    .nav__list {
+        gap: clamp(1.2rem, 2.5vw, 1.8rem);
+    }
+
+    .nav__cta {
+        padding: clamp(0.4rem, 1vw, 0.5rem) clamp(1rem, 2.2vw, 1.2rem);
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav__container {
+        width: var(--container-width-md);
+        padding: clamp(0.6rem, 1.5vw, 0.8rem) var(--spacing-sm);
+    }
+
+    .nav__list {
+        gap: clamp(1.2rem, 3vw, 1.8rem);
+    }
+
+    .nav__cta {
+        padding: clamp(0.4rem, 1.2vw, 0.5rem) clamp(1rem, 2.5vw, 1.2rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav__container {
+        width: var(--container-width-sm);
+        padding: clamp(0.6rem, 1.5vw, 0.8rem) var(--spacing-sm);
+        position: relative;
     }
 
     .nav__menu {
@@ -118,70 +160,204 @@
         left: -100%;
         width: 100%;
         height: 100vh;
-        background: var(--color-bg);
+        background: rgba(31, 31, 56, 0.95);
+        backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         transition: var(--transition);
+        z-index: 1000;
     }
 
-    .nav__menu.show-menu {
+    .nav__menu.active {
         left: 0;
     }
 
     .nav__list {
         flex-direction: column;
-        gap: 2.5rem;
+        gap: clamp(2rem, 5vw, 3rem);
         text-align: center;
     }
 
     .nav__link {
-        font-size: 1.2rem;
-    }
-
-    .nav__close {
-        display: block;
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-    }
-
-    .nav__toggle {
-        display: block;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        padding: clamp(0.8rem, 2vw, 1rem) 0;
     }
 
     .nav__cta {
-        font-size: 0.85rem;
-        padding: 0.5rem 1rem;
+        margin-top: clamp(1.5rem, 4vw, 2rem);
+        padding: clamp(0.8rem, 2vw, 1rem) clamp(2rem, 4vw, 2.5rem);
+        font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+    }
+
+    .nav__actions {
+        gap: clamp(0.8rem, 2vw, 1rem);
+        position: relative;
+        z-index: 1001;
+        right: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .nav__toggle {
+        display: flex;
+        background: none;
+        color: var(--color-white);
+        font-size: clamp(1.3rem, 3vw, 1.5rem);
+        cursor: pointer;
+        border: none;
+        padding: 0.5rem;
+        min-height: var(--touch-target);
+        min-width: var(--touch-target);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav__close {
+        position: absolute;
+        top: clamp(1.5rem, 4vw, 2rem);
+        right: clamp(1.5rem, 4vw, 2rem);
+        background: none;
+        color: var(--color-white);
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
+        cursor: pointer;
+        border: none;
+        padding: 0.5rem;
+        min-height: var(--touch-target);
+        min-width: var(--touch-target);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav__cta {
+        padding: clamp(0.3rem, 1vw, 0.4rem) clamp(0.6rem, 2vw, 0.8rem);
+        font-size: clamp(0.7rem, 1.8vw, 0.8rem);
     }
 
     .logo-text {
-        font-size: 1.3rem;
+        font-size: clamp(1rem, 2.8vw, 1.2rem);
     }
 
     .logo-subtitle {
-        font-size: 0.75rem;
+        display: none;
+    }
+
+    .nav__link {
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
     }
 }
 
 @media screen and (max-width: 600px) {
     .nav__container {
         width: var(--container-width-sm);
+        padding: clamp(0.5rem, 1.2vw, 0.6rem) var(--spacing-xs);
     }
 
     .nav__actions {
-        gap: 0.5rem;
+        gap: clamp(0.5rem, 1.5vw, 0.8rem);
     }
 
     .nav__cta {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: clamp(0.3rem, 1vw, 0.4rem) clamp(0.6rem, 2vw, 0.8rem);
+        font-size: clamp(0.7rem, 1.8vw, 0.8rem);
     }
 
     .logo-text {
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 2.8vw, 1.2rem);
     }
 
     .logo-subtitle {
         display: none;
+    }
+
+    .nav__link {
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+    }
+
+    .nav__list {
+        gap: clamp(1.5rem, 4vw, 2.5rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav__container {
+        padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
+    }
+
+    .nav__cta {
+        padding: clamp(0.3rem, 0.8vw, 0.4rem) clamp(0.5rem, 1.5vw, 0.7rem);
+        font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+    }
+
+    .nav__toggle {
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        padding: 0.3rem;
+        min-height: 36px;
+        min-width: 36px;
+    }
+
+    .logo-text {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    }
+
+    .nav__link {
+        font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+        padding: clamp(1rem, 2.5vw, 1.2rem) 0;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    .nav__link,
+    .nav__cta,
+    .nav__toggle {
+        min-height: var(--touch-target);
+        padding-top: clamp(0.6rem, 1.5vw, 0.8rem);
+        padding-bottom: clamp(0.6rem, 1.5vw, 0.8rem);
+    }
+
+    .nav__link:hover,
+    .nav__cta:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .navigation {
+        border-bottom: 2px solid var(--color-primary);
+    }
+
+    .nav__link.active-link::after {
+        height: 3px;
+    }
+
+    .nav__cta {
+        border-width: 2px;
+        font-weight: 600;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .nav__menu {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 clamp(2rem, 5vw, 4rem);
+    }
+
+    .nav__list {
+        flex-direction: row;
+        gap: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .nav__link {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        padding: clamp(0.5rem, 1.5vw, 0.7rem) 0;
+    }
+
+    .nav__cta {
+        margin-top: 0;
+        margin-left: clamp(1rem, 3vw, 1.5rem);
     }
 }

@@ -767,81 +767,90 @@
     transform: scale(1.05);
 }
 
-/* Responsive Design */
-@media screen and (max-width: 1024px) {
+/* Enhanced Responsive Design */
+@media screen and (max-width: 1200px) {
     .portfolio__container {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .portfolio__filters {
+        gap: clamp(0.8rem, 2vw, 1rem);
+        margin-bottom: clamp(3rem, 5vw, 4rem);
+    }
+
+    .filter__btn {
+        padding: clamp(0.6rem, 1.5vw, 0.8rem) clamp(1.2rem, 2.5vw, 1.5rem);
+        font-size: clamp(0.85rem, 2vw, 0.9rem);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .portfolio__container {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .modal__body--enhanced {
+        grid-template-columns: 1fr;
+        gap: clamp(2rem, 4vw, 3rem);
+        height: auto;
+        overflow-y: auto;
+        max-height: 80vh;
+    }
+
+    .modal__phone {
+        width: clamp(260px, 50vw, 300px);
+        height: clamp(540px, 100vw, 620px);
     }
 }
 
 @media screen and (max-width: 768px) {
     .portfolio {
-        padding: 4rem 0;
+        padding: clamp(3rem, 6vw, 4rem) 0;
     }
 
     .portfolio__container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: clamp(1.5rem, 3vw, 2rem);
     }
 
     .portfolio__item-content {
-        padding: 1.5rem;
+        padding: clamp(1.2rem, 3vw, 1.5rem);
     }
 
     .portfolio__filters {
-        gap: 0.5rem;
+        gap: clamp(0.5rem, 1.5vw, 0.8rem);
+        margin-bottom: clamp(2.5rem, 5vw, 3rem);
     }
 
     .filter__btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
+        padding: clamp(0.5rem, 1.2vw, 0.6rem) clamp(1rem, 2vw, 1.2rem);
+        font-size: clamp(0.8rem, 1.8vw, 0.85rem);
     }
 
     .modal__overlay {
-        padding: 1rem;
+        padding: clamp(1rem, 2vw, 1.5rem);
     }
 
     .modal__header,
     .modal__body {
-        padding: 1.5rem;
+        padding: clamp(1.2rem, 3vw, 1.5rem);
     }
 
     .modal__header h2 {
-        font-size: 1.5rem;
+        font-size: clamp(1.4rem, 3.5vw, 1.6rem);
     }
 
     .modal__meta {
         grid-template-columns: 1fr;
-        gap: 0.8rem;
+        gap: clamp(0.6rem, 1.5vw, 0.8rem);
+        padding: clamp(1.2rem, 3vw, 1.5rem);
     }
 
-    .modal__actions {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .portfolio__container {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio__item-image {
-        height: 200px;
-    }
-
-    .portfolio__actions {
-        flex-direction: column;
-    }
-
-    .modal__image img {
-        height: 200px;
-    }
-}
-
-@media (max-width: 768px) {
     .modal__phone {
-        width: 240px;
-        height: 500px;
+        width: clamp(240px, 45vw, 280px);
+        height: clamp(500px, 90vw, 580px);
     }
 
     .nav__button--prev {
@@ -863,38 +872,207 @@
 
     .modal__actions {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(0.8rem, 2vw, 1rem);
     }
 
     .btn--modal {
         flex: 1;
-        justify-content: center;
-        min-width: 120px;
+        min-width: 140px;
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 600px) {
+    .portfolio__container {
+        grid-template-columns: 1fr;
+        gap: clamp(1.2rem, 3vw, 1.5rem);
+    }
+
+    .portfolio__item-image {
+        height: clamp(180px, 40vw, 220px);
+    }
+
+    .portfolio__item-content {
+        padding: clamp(1rem, 2.5vw, 1.2rem);
+    }
+
+    .portfolio__filters {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(0.4rem, 1vw, 0.6rem);
+    }
+
+    .filter__btn {
+        padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
+        font-size: clamp(0.75rem, 1.8vw, 0.8rem);
+        min-width: 80px;
+    }
+
+    .portfolio__actions {
+        flex-direction: column;
+        gap: clamp(0.6rem, 1.5vw, 0.8rem);
+    }
+
+    .modal__image img {
+        height: clamp(160px, 35vw, 200px);
+    }
+
+    .modal__overlay {
+        padding: clamp(0.8rem, 2vw, 1rem);
+    }
+
+    .modal__content {
+        max-width: 95vw;
+        max-height: 90vh;
+    }
+
+    .modal__header {
+        padding: clamp(1rem, 2.5vw, 1.2rem);
+    }
+
+    .modal__body {
+        padding: clamp(1rem, 2.5vw, 1.2rem);
+    }
+
+    .modal__actions {
+        flex-direction: column;
+        gap: clamp(0.6rem, 1.5vw, 0.8rem);
+    }
+
+    .btn--modal {
+        width: 100%;
+        justify-content: center;
+        min-height: var(--touch-target);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .portfolio {
+        padding: clamp(2.5rem, 5vw, 3rem) 0;
+    }
+
+    .portfolio__intro {
+        margin-bottom: clamp(2rem, 4vw, 2.5rem);
+        font-size: clamp(0.9rem, 2.2vw, 1rem);
+    }
+
+    .portfolio__item-image {
+        height: clamp(160px, 35vw, 180px);
+    }
+
     .modal__phone {
-        width: 200px;
-        height: 420px;
+        width: clamp(200px, 40vw, 240px);
+        height: clamp(420px, 80vw, 500px);
     }
 
     .phone__notch {
-        width: 120px;
-        height: 20px;
+        width: clamp(100px, 20vw, 120px);
+        height: clamp(18px, 4vw, 20px);
     }
 
     .toggle__button {
-        padding: 4px 12px;
-        font-size: 11px;
+        padding: clamp(3px, 1vw, 4px) clamp(10px, 2.5vw, 12px);
+        font-size: clamp(10px, 2.2vw, 11px);
     }
 
     .nav__button {
-        width: 35px;
-        height: 35px;
+        width: clamp(32px, 8vw, 35px);
+        height: clamp(32px, 8vw, 35px);
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
     }
 
     .pagination__dot {
-        width: 6px;
-        height: 6px;
+        width: clamp(5px, 1.5vw, 6px);
+        height: clamp(5px, 1.5vw, 6px);
+    }
+
+    .modal__close {
+        width: clamp(32px, 8vw, 36px);
+        height: clamp(32px, 8vw, 36px);
+        font-size: clamp(1.2rem, 3vw, 1.3rem);
+    }
+
+    .tech__badge {
+        font-size: clamp(0.7rem, 1.8vw, 0.75rem);
+        padding: clamp(0.2rem, 0.8vw, 0.25rem) clamp(0.6rem, 1.5vw, 0.7rem);
+    }
+}
+
+/* Ultra-small screens */
+@media screen and (max-width: 360px) {
+    .portfolio__filters {
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.4rem, 1vw, 0.5rem);
+    }
+
+    .filter__btn {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+
+    .portfolio__item-content h3 {
+        font-size: clamp(1.1rem, 3vw, 1.2rem);
+    }
+
+    .modal__phone {
+        width: clamp(180px, 50vw, 200px);
+        height: clamp(380px, 100vw, 420px);
+    }
+}
+
+/* Landscape orientation for tablets */
+@media screen and (max-height: 600px) and (min-width: 768px) and (orientation: landscape) {
+    .modal__body--enhanced {
+        grid-template-columns: 1fr 1fr;
+        height: 70vh;
+        overflow: hidden;
+    }
+
+    .modal__details-section {
+        overflow-y: auto;
+        height: 100%;
+    }
+
+    .modal__phone {
+        width: 220px;
+        height: 460px;
+    }
+}
+
+/* High DPI displays */
+@media screen and (min-resolution: 192dpi) {
+
+    .portfolio__item-image img,
+    .modal__image img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Touch device specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .portfolio__item:hover {
+        transform: none;
+    }
+
+    .portfolio__item:hover .portfolio__overlay {
+        opacity: 0;
+    }
+
+    .portfolio__item {
+        cursor: pointer;
+    }
+
+    .view-case-study,
+    .filter__btn,
+    .btn--modal {
+        min-height: var(--touch-target);
+    }
+
+    .nav__button {
+        min-width: var(--touch-target);
+        min-height: var(--touch-target);
     }
 }

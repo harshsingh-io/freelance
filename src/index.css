@@ -14,15 +14,45 @@
     --color-danger: #ff4757;
     --color-success: #2ed573;
 
+    /* Enhanced responsive container widths */
     --container-width-lg: 75%;
     --container-width-md: 86%;
     --container-width-sm: 90%;
+    --container-width-xs: 95%;
+
+    /* Enhanced responsive spacing with better scaling */
+    --spacing-xs: clamp(0.5rem, 1.5vw, 1rem);
+    --spacing-sm: clamp(1rem, 2.5vw, 2rem);
+    --spacing-md: clamp(2rem, 4vw, 4rem);
+    --spacing-lg: clamp(3rem, 6vw, 6rem);
+    --spacing-xl: clamp(4rem, 8vw, 8rem);
+
+    /* Enhanced responsive font sizes with better scaling */
+    --font-xs: clamp(0.75rem, 1.8vw, 0.875rem);
+    --font-sm: clamp(0.875rem, 2.2vw, 1rem);
+    --font-base: clamp(1rem, 2.8vw, 1.125rem);
+    --font-lg: clamp(1.125rem, 3.2vw, 1.25rem);
+    --font-xl: clamp(1.25rem, 3.8vw, 1.5rem);
+    --font-2xl: clamp(1.5rem, 4.5vw, 2rem);
+    --font-3xl: clamp(2rem, 5.5vw, 3rem);
+    --font-4xl: clamp(2.5rem, 7vw, 4rem);
 
     --transition: all 400ms ease;
 
     --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.15);
     --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+    /* Enhanced touch target sizes */
+    --touch-target: 44px;
+    --touch-target-lg: 48px;
+
+    /* New responsive breakpoints for better control */
+    --bp-xs: 480px;
+    --bp-sm: 600px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+    --bp-xl: 1200px;
 }
 
 /* Base styles */
@@ -38,6 +68,14 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
+    /* Base font size for rem calculations */
+}
+
+/* Prevent horizontal scroll and improve mobile experience */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -50,28 +88,56 @@ body {
     color: var(--color-white);
     line-height: 1.7;
     background-image: url('./assets/bg-texture.png');
+    min-width: 320px;
+    /* Minimum supported width */
 }
 
-/* General container classes */
+/* Enhanced container classes with better responsive behavior */
 .container {
     width: var(--container-width-lg);
     margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    max-width: 1400px;
 }
 
+/* Responsive typography with improved scaling */
 h1,
 h2,
 h3,
 h4,
 h5 {
     font-weight: 500;
+    line-height: 1.2;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: var(--font-4xl);
+}
+
+h2 {
+    font-size: var(--font-3xl);
+}
+
+h3 {
+    font-size: var(--font-2xl);
+}
+
+h4 {
+    font-size: var(--font-xl);
+}
+
+h5 {
+    font-size: var(--font-lg);
+}
+
+p {
+    font-size: var(--font-base);
+    line-height: 1.6;
 }
 
 section {
-    margin-top: 8rem;
+    margin-top: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
 }
 
 section>h2,
@@ -82,29 +148,38 @@ section>h5 {
 
 section>h2 {
     color: var(--color-primary);
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .text-light {
     color: var(--color-light);
 }
 
-/* Button styles */
+/* Enhanced button styles with better responsive behavior */
 .btn {
     width: max-content;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     color: var(--color-primary);
-    padding: 0.75rem 1.2rem;
+    padding: clamp(0.6rem, 1.8vw, 0.75rem) clamp(1rem, 2.8vw, 1.2rem);
     border-radius: 0.4rem;
     cursor: pointer;
     border: 1px solid var(--color-primary);
     transition: var(--transition);
+    font-size: var(--font-sm);
+    font-weight: 500;
+    text-align: center;
+    min-height: var(--touch-target);
+    white-space: nowrap;
 }
 
 .btn:hover {
     background: var(--color-white);
     color: var(--color-bg);
     border-color: transparent;
+    transform: translateY(-2px);
 }
 
 .btn.btn-primary {
@@ -129,12 +204,96 @@ section>h2 {
 }
 
 .btn.btn-lg {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
+    padding: clamp(0.8rem, 2.2vw, 1rem) clamp(1.5rem, 3.5vw, 2rem);
+    font-size: var(--font-lg);
     font-weight: 500;
+    min-height: var(--touch-target-lg);
 }
 
-/* Loading animation */
+.btn.btn-sm {
+    padding: clamp(0.4rem, 1.2vw, 0.5rem) clamp(0.8rem, 1.8vw, 1rem);
+    font-size: var(--font-xs);
+    min-height: 36px;
+}
+
+/* Enhanced responsive utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-sm {
+    gap: var(--spacing-xs);
+}
+
+.gap-md {
+    gap: var(--spacing-sm);
+}
+
+.gap-lg {
+    gap: var(--spacing-md);
+}
+
+.mb-sm {
+    margin-bottom: var(--spacing-xs);
+}
+
+.mb-md {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-lg {
+    margin-bottom: var(--spacing-md);
+}
+
+.p-sm {
+    padding: var(--spacing-xs);
+}
+
+.p-md {
+    padding: var(--spacing-sm);
+}
+
+.p-lg {
+    padding: var(--spacing-md);
+}
+
+/* Enhanced animations with reduced motion support */
 .loading {
     display: inline-block;
     width: 20px;
@@ -151,7 +310,6 @@ section>h2 {
     }
 }
 
-/* Fade in animation */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -165,7 +323,6 @@ section>h2 {
     }
 }
 
-/* Slide in animation */
 .slide-in-left {
     opacity: 0;
     transform: translateX(-50px);
@@ -192,7 +349,6 @@ section>h2 {
     }
 }
 
-/* Scale animation */
 .scale-in {
     opacity: 0;
     transform: scale(0.8);
@@ -206,29 +362,155 @@ section>h2 {
     }
 }
 
-/* Responsive design */
-/* =============== MEDIA QUERIES (MEDIUM DEVICES) =============== */
-@media screen and (max-width: 1024px) {
+/* Enhanced responsive design breakpoints */
+@media screen and (max-width: 1400px) {
     .container {
-        width: var(--container-width-md);
-    }
-
-    section {
-        margin-top: 6rem;
+        width: var(--container-width-lg);
+        padding: 0 var(--spacing-sm);
     }
 }
 
-/* =============== MEDIA QUERIES (SMALL DEVICES) =============== */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
+    .container {
+        width: var(--container-width-md);
+        padding: 0 var(--spacing-sm);
+    }
+
+    section {
+        margin-top: var(--spacing-lg);
+    }
+
+    .btn {
+        padding: clamp(0.5rem, 1.8vw, 0.7rem) clamp(0.8rem, 2.8vw, 1.1rem);
+    }
+
+    .btn.btn-lg {
+        padding: clamp(0.7rem, 2.2vw, 0.9rem) clamp(1.2rem, 3.5vw, 1.8rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
     .container {
         width: var(--container-width-sm);
+        padding: 0 var(--spacing-sm);
+    }
+
+    section {
+        margin-top: var(--spacing-md);
+        padding: 0 var(--spacing-xs);
     }
 
     section>h2 {
-        margin-bottom: 2rem;
+        margin-bottom: var(--spacing-sm);
     }
 
+    /* Enhanced mobile button behavior */
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .btn.btn-inline {
+        width: max-content;
+    }
+
+    /* Stack flex items on mobile when needed */
+    .flex-stack-mobile {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: var(--container-width-sm);
+        padding: 0 var(--spacing-xs);
+    }
+
+    section>h2 {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Ensure minimum touch targets on small screens */
+    .btn, .btn.btn-sm {
+        min-height: var(--touch-target);
+        padding: clamp(0.6rem, 1.8vw, 0.8rem) clamp(1rem, 2.8vw, 1.2rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: var(--container-width-xs);
+        padding: 0 clamp(0.5rem, 1.8vw, 1rem);
+    }
+
+    section {
+        margin-top: clamp(2rem, 5vw, 4rem);
+    }
+
+    /* Enhanced mobile stacking */
+    .flex-stack-mobile {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+
+    /* Better mobile typography */
     h1 {
-        font-size: 2rem;
+        font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    h3 {
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
+    }
+}
+
+/* High DPI screens optimization */
+@media screen and (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #0066ff;
+        --color-accent: #00ff88;
+    }
+
+    .btn {
+        border-width: 2px;
+        font-weight: 600;
+    }
+}
+
+/* Print styles */
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .btn {
+        border: 1px solid black !important;
     }
 }
