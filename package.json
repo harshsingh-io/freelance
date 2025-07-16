@@ -2,7 +2,7 @@
     "name": "freelance-portfolio",
     "version": "1.0.0",
     "private": true,
-    "homepage": "https://harshsingh-io.github.io/portfolio-website",
+    "homepage": "https://portfolio.harshsingh.io",
     "dependencies": {
         "emailjs-com": "^3.2.0",
         "react": "^18.2.0",
